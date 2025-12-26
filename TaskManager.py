@@ -117,8 +117,8 @@ class TaskManager:
         if t is None:
             return False
         t.reminded = True
+        self._save()
         return True
-
 
     def _load(self) -> None:
         raw = self._storage.load()
