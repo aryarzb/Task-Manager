@@ -10,10 +10,10 @@ class Main:
             self.tm = TaskManager()
             self.io = IO()
             self.running = True
-            self._reminder_thread = threading.Thread(target=self._reminder_loop, daemon=True)
+            self._reminder_thread = threading.Thread(target=self.reminder_loop, daemon=True)
             self._reminder_thread.start()
 
-    def _reminder_loop(self) -> None:
+    def reminder_loop(self) -> None:
             while self.running:
                 due = self.tm.get_due_reminders()
                 for t in due:
